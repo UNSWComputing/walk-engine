@@ -141,11 +141,11 @@ void Walk::calculateNewStep(const biped_interfaces::msg::Phase& phase)
   pub_gait_->publish(gait);
 
   auto ftp_next = walk_interfaces::msg::FeetTrajectoryPoint(
-    (phase.phase == phase.LEFT_STANCE) ? gait.left_stance_phase_aim : gait.right_stance_phase_aim);
+    (phase.phase == biped_interfaces::msg::Phase::LEFT_STANCE) ? gait.left_stance_phase_aim : gait.right_stance_phase_aim);
 
   RCLCPP_DEBUG(
     get_logger(), "Using %s",
-    (phase.phase == phase.LEFT_STANCE) ? "LSP (Left Stance Phase)" : "RSP (Right Stance Phase)");
+    (phase.phase == biped_interfaces::msg::Phase::LEFT_STANCE) ? "LSP (Left Stance Phase)" : "RSP (Right Stance Phase)");
 
   auto ftp_current =
     step_state_ ? step_state_->current() : walk_interfaces::msg::FeetTrajectoryPoint{};
