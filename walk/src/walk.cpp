@@ -105,7 +105,7 @@ void Walk::walk(const geometry_msgs::msg::Twist & commanded_twist)
   {
     RCLCPP_DEBUG(get_logger(), "Calculating first step!");
     biped_interfaces::msg::Phase phase;
-    phase.phase = phase.RIGHT_SWING;
+    phase.phase = biped_interfaces::msg::Phase::RIGHT_SWING;
     calculateNewStep(phase);
   }
 }

@@ -42,7 +42,7 @@ walk_interfaces::msg::Step generate(
     float heading_l_diff = next.heading_l - last.heading_l;
     float heading_r_diff = next.heading_r - last.heading_r;
 
-    if (phase.phase == phase.RIGHT_SWING) {
+    if (phase.phase == biped_interfaces::msg::Phase::RIGHT_SWING) {
       forward_l = last.forward_l +
         forward_l_diff * linearStep(t, period);
       forward_r = last.forward_r +
@@ -67,7 +67,7 @@ walk_interfaces::msg::Step generate(
     float footh_l = 0;
     float footh_r = 0;
 
-    if (phase.phase == phase.RIGHT_SWING) {
+    if (phase.phase == biped_interfaces::msg::Phase::RIGHT_SWING) {
       footh_r = max_foot_height * parabolicReturnMod(t / period);
     } else {
       footh_l = max_foot_height * parabolicReturnMod(t / period);
