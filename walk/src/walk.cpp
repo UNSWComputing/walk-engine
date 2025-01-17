@@ -79,7 +79,7 @@ void Walk::generateCommand()
     return;
   }
 
-  if (!step_state_->done()) {
+  if (!step_state_->done() || phase_ == biped_interfaces::msg::Phase::DOUBLE_STANCE) {
     RCLCPP_DEBUG(get_logger(), "sending sole poses");
     pub_sole_poses_->publish(
       sole_pose::generate(params_->sole_pose_, step_state_->next(), phase_, filtered_gyro_y_));
